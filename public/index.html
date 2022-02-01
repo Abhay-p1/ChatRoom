@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/309/309666.png">
+    <title>Chat App</title>
+    <style>
+        html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+  background-image: url("images/6dfd23cb19b2c04fd5c3051bdfba691e.jpg");
+  background-size: cover;
+  background-position:center;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(196, 25, 25, 0.952);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #f1c226;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #e6c431;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box a:hover {
+  background: #f1c226;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f1c226,
+              0 0 25px #f8cb37,
+              0 0 50px #f1c226,
+              0 0 100px #f3c52c;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f1c226);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #f1c226);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #f1c226);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #f1c226);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+/* select design   */
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+.roomsele{
+  margin-bottom:3px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#121b24;
+  font-weight: 500;
+}
+@media (max-width:430px){
+  .login-box{
+    width:300px;
+  }
+  .select{
+     width:14rem;
+  }
+}
+  </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Chat App</h2>
+        <form name="myform" id="form-id" method="GET" action="chat.html">
+          <div class="user-box">
+            <input type="text" name="username" id="usrname" required autocomplete="off">
+            <label>Username</label>
+          </div>
+          <!-- <div class="user-box">
+            <input type="password" name="" required="">
+            <label>Password</label>
+          </div> -->
+          <div class="roomsele">Select Room</div>
+          <div class="select">
+						<select class="dropdown-content" name="room" id="room">
+							<option class="redi" value="General Discussion">General Discussion</option>
+							<option  class="yello" value="Programming">Programming</option>
+							<option  class="redi" value="Friends">Friends</option>
+							<option  class="yello" value="Gaming">Gaming</option>
+							<option  class="redi" value="Individual">Individual</option>
+							<option  class="yello" value="Development">Development</option>
+						</select>
+          </div>
+          <a  class="" href="javascript: submitform()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            ENTER ROOM
+          </a>
+        </form>
+      </div>
+      
+   <script type="text/javascript"> 
+        function submitform(e) {
+            var uname = document.getElementById('usrname');
+            if(uname.value===""){
+              alert('Please Enter Valid Username');
+            }
+             else document.myform.submit(); 
+          } 
+   </script> 
+</body>
+</html>
